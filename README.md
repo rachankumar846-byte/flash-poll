@@ -123,6 +123,11 @@ Creates a new poll.
 }
 ```
 
+**Response:** `201 Created`
+```json
+{ "success": true, "data": { "id": "uuid", "question": "...", "options": [...] } }
+```
+
 ---
 
 ### `PATCH /api/polls/:id/vote`
@@ -133,10 +138,20 @@ Records a vote atomically.
 { "option_id": "uuid" }
 ```
 
+**Response:** `200 OK`
+```json
+{ "success": true, "data": { "options": [...], "total_votes": 5 } }
+```
+
 ---
 
 ### `DELETE /api/polls/:id`
 Deletes a poll and all associated options (cascade).
+
+**Response:** `200 OK`
+```json
+{ "success": true, "message": "Poll deleted successfully" }
+```
 
 ---
 
